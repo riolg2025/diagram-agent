@@ -71,3 +71,9 @@ The first schema drafts now cover the minimum evidence-grounded chain:
 ```text
 Evidence -> Semantic Claim -> Intent Claim -> Diagram IR -> Validation Result
 ```
+
+## Validate Fixtures
+
+```bash
+python3 tools/validate-fixtures.py
+```
