@@ -1,0 +1,29 @@
+[
+  {
+    "id": "v-001",
+    "target_id": "d-001",
+    "status": "warn",
+    "checks": [
+      {
+        "name": "evidence_links_present",
+        "status": "pass",
+        "message": "IR elements reference source evidence.",
+        "evidence_ids": ["e-001", "e-002", "e-003"]
+      },
+      {
+        "name": "semantic_claims_grounded",
+        "status": "pass",
+        "message": "Semantic claims reference evidence.",
+        "evidence_ids": ["e-001", "e-002", "e-003", "e-004"]
+      },
+      {
+        "name": "intent_confidence",
+        "status": "warn",
+        "message": "Intent remains unresolved until the dark blue emphasis is clarified.",
+        "evidence_ids": ["e-003", "e-004"]
+      }
+    ],
+    "repair_required": false
+  }
+]
+

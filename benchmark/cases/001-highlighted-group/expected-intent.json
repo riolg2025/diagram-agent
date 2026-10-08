@@ -1,0 +1,11 @@
+[
+  {
+    "id": "i-001",
+    "intent": "The diagram likely emphasizes Application Management as an important part of the grouped area.",
+    "supporting_claim_ids": ["s-001", "s-002"],
+    "confidence": 0.72,
+    "status": "needs_clarification",
+    "open_questions": ["q-001"]
+  }
+]
+

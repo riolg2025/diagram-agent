@@ -1,0 +1,10 @@
+[
+  {
+    "id": "q-001",
+    "question": "Does the dark blue styling mean Application Management is the current focus, or only that it belongs to this group?",
+    "reason": "The answer affects whether the compiled diagram should preserve strong emphasis or only group membership.",
+    "blocks": ["i-001", "d-001"],
+    "status": "open"
+  }
+]
+

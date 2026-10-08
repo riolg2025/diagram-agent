@@ -1,0 +1,52 @@
+[
+  {
+    "id": "e-001",
+    "type": "text",
+    "source": "ppt_native",
+    "content": "Application Management",
+    "confidence": 0.99,
+    "artifact_ref": "case-001/input.md#application-management"
+  },
+  {
+    "id": "e-002",
+    "type": "container",
+    "source": "geometry_analysis",
+    "content": {
+      "shape": "dashed_rectangle",
+      "contains": ["Application Management"]
+    },
+    "confidence": 0.9,
+    "artifact_ref": "case-001/input.md#dashed-group",
+    "visual_grammar": {
+      "container": {
+        "type": "dashed_group"
+      }
+    }
+  },
+  {
+    "id": "e-003",
+    "type": "style",
+    "source": "style_analysis",
+    "content": {
+      "fill": "dark_blue",
+      "emphasis": "high"
+    },
+    "confidence": 0.86,
+    "artifact_ref": "case-001/input.md#application-management-style",
+    "visual_grammar": {
+      "node_style": {
+        "fill": "dark_blue",
+        "emphasis": "high"
+      }
+    }
+  },
+  {
+    "id": "e-004",
+    "type": "context",
+    "source": "external_context",
+    "content": "The source does not explicitly define the meaning of the dark blue styling.",
+    "confidence": 1,
+    "artifact_ref": "case-001/input.md#uncertainty"
+  }
+]
+

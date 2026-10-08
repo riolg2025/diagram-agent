@@ -1,0 +1,29 @@
+{
+  "id": "d-001",
+  "title": "Application Management Group",
+  "source_intent_ids": ["i-001"],
+  "elements": [
+    {
+      "id": "group-01",
+      "type": "container",
+      "label": "Group",
+      "children": ["node-01"],
+      "style": {
+        "border": "dashed"
+      },
+      "evidence_ids": ["e-002"]
+    },
+    {
+      "id": "node-01",
+      "type": "node",
+      "label": "Application Management",
+      "style": {
+        "fill": "dark_blue",
+        "emphasis": "high"
+      },
+      "evidence_ids": ["e-001", "e-003"],
+      "semantic_claim_ids": ["s-001", "s-002"]
+    }
+  ]
+}
+

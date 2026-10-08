@@ -1,0 +1,17 @@
+[
+  {
+    "id": "s-001",
+    "claim": "Application Management is represented as a highlighted node inside a dashed group.",
+    "evidence_ids": ["e-001", "e-002", "e-003"],
+    "confidence": 0.86,
+    "status": "hypothesis"
+  },
+  {
+    "id": "s-002",
+    "claim": "The meaning of the dark blue emphasis is ambiguous in the source material.",
+    "evidence_ids": ["e-003", "e-004"],
+    "confidence": 0.91,
+    "status": "validated"
+  }
+]
+
