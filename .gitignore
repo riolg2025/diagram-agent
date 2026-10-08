@@ -1,0 +1,22 @@
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Local environments
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+node_modules/
+
+# Build and generated outputs
+dist/
+build/
+coverage/
+.cache/
+tmp/
+
