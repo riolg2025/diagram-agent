@@ -1,0 +1,12 @@
+[
+  {
+    "id": "g-001",
+    "decision": "clarify",
+    "reason": "The dark blue styling is visible, but the source does not say whether it means current focus, higher importance, or only group membership.",
+    "target_ids": ["i-001", "d-001"],
+    "confidence": 0.72,
+    "question_id": "q-001",
+    "evidence_ids": ["e-003", "e-004"]
+  }
+]
+

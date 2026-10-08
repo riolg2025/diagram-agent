@@ -67,6 +67,8 @@ The confidence gate decides what the agent should do next.
 - Clarify: a targeted user question can resolve meaningful ambiguity.
 - Block: the agent cannot proceed responsibly with the available information.
 
+See `docs/confidence-gate.md` for the V0.1 rule of thumb.
+
 ## Semantic Model
 
 The semantic model represents interpreted meaning while preserving evidence links.
@@ -96,4 +98,3 @@ The generated output should be checked against the intended semantic and visual 
 ## Repair / Done
 
 If validation fails, the agent should repair the result and validate again. If validation passes, the task is done.
-

@@ -45,6 +45,7 @@ V0.1 does not commit to a specific model provider, rendering engine, storage lay
 │   ├── architecture.md
 │   ├── agent-loop.md
 │   ├── benchmark.md
+│   ├── confidence-gate.md
 │   ├── concepts.md
 │   └── evidence-grounding.md
 ├── examples/

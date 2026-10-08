@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/riolg2025/diagram-agent/schemas/confidence-gate.schema.json",
+  "title": "Confidence Gate Decision",
+  "description": "A decision to continue, ask a focused clarification question, or stop because confidence is too low.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "decision", "reason", "target_ids"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^g-[A-Za-z0-9._-]+$"
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["continue", "clarify", "block"]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "target_ids": {
+      "description": "The claims, questions, or outputs affected by this gate decision.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "question_id": {
+      "description": "Required by convention when decision is clarify.",
+      "type": "string",
+      "pattern": "^q-[A-Za-z0-9._-]+$"
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^e-[A-Za-z0-9._-]+$"
+      }
+    }
+  }
+}
+

@@ -8,6 +8,7 @@ Expected schema areas:
 - `semantic.schema.json`
 - `intent.schema.json`
 - `question.schema.json`
+- `confidence-gate.schema.json`
 - `diagram-ir.schema.json`
 - `validation.schema.json`
 

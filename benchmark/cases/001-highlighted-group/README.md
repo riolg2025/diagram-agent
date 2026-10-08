@@ -14,6 +14,7 @@ This case checks whether the system can represent:
 - A semantic hypothesis grounded in evidence.
 - An intent hypothesis with unresolved uncertainty.
 - A clarification question.
+- A confidence gate decision to ask that question.
 - A Diagram IR that preserves evidence links.
 - A validation result that distinguishes structural pass from intent warning.
 
@@ -24,6 +25,7 @@ input.md
   -> expected-evidence.json
   -> expected-semantic.json
   -> expected-intent.json
+  -> expected-confidence-gate.json
   -> expected-diagram-ir.json
   -> expected-validation.json
 ```
@@ -33,4 +35,3 @@ input.md
 This case does not require image parsing, OCR, rendering, or runtime execution.
 
 It is a contract fixture for V0.1 schema and reasoning shape.
-

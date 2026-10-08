@@ -24,6 +24,7 @@ SCHEMAS = {
     "semantic": ROOT / "schemas/semantic.schema.json",
     "intent": ROOT / "schemas/intent.schema.json",
     "question": ROOT / "schemas/question.schema.json",
+    "confidence_gate": ROOT / "schemas/confidence-gate.schema.json",
     "diagram_ir": ROOT / "schemas/diagram-ir.schema.json",
     "validation": ROOT / "schemas/validation.schema.json",
 }
@@ -77,6 +78,7 @@ def validate_benchmark_case(case_dir: Path) -> list[str]:
         ("semantic", "expected-semantic.json", True),
         ("intent", "expected-intent.json", True),
         ("question", "expected-question.json", True),
+        ("confidence_gate", "expected-confidence-gate.json", True),
         ("diagram_ir", "expected-diagram-ir.json", False),
         ("validation", "expected-validation.json", True),
     ]
@@ -120,4 +122,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-
