@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/riolg2025/diagram-agent/schemas/evidence.schema.json",
+  "title": "Evidence",
+  "description": "Observable information extracted from source material. Evidence records what is present, not what it means.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "source", "content", "confidence"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^e-[A-Za-z0-9._-]+$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "shape",
+        "connector",
+        "container",
+        "style",
+        "spatial",
+        "context",
+        "user_answer",
+        "external_context"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "ppt_native",
+        "ocr",
+        "visual_model",
+        "geometry_analysis",
+        "style_analysis",
+        "connector_analysis",
+        "user",
+        "external_context"
+      ]
+    },
+    "content": {
+      "description": "The directly observed content. May be text or structured observable facts.",
+      "oneOf": [
+        { "type": "string" },
+        {
+          "type": "object",
+          "additionalProperties": true
+        },
+        {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "type": "string" },
+              {
+                "type": "object",
+                "additionalProperties": true
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "artifact_ref": {
+      "description": "Optional pointer to the source artifact, slide, page, object, or region.",
+      "type": "string"
+    },
+    "visual_grammar": {
+      "description": "Observed visual signals such as style, grouping, emphasis, and spatial relation.",
+      "type": "object",
+      "additionalProperties": true
+    },
+    "provenance": {
+      "description": "Trace information for how this evidence was obtained.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "method": { "type": "string" },
+        "artifact": { "type": "string" },
+        "region": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "width": { "type": "number" },
+            "height": { "type": "number" }
+          }
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}
+

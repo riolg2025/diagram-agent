@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/riolg2025/diagram-agent/schemas/validation.schema.json",
+  "title": "Validation Result",
+  "description": "A validation result for evidence, interpretation, Diagram IR, or rendered output.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "target_id", "status", "checks"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^v-[A-Za-z0-9._-]+$"
+    },
+    "target_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["pass", "warn", "fail", "blocked"]
+    },
+    "checks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "status"],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["pass", "warn", "fail", "blocked"]
+          },
+          "message": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^e-[A-Za-z0-9._-]+$"
+            }
+          }
+        }
+      }
+    },
+    "repair_required": {
+      "type": "boolean"
+    }
+  }
+}
+

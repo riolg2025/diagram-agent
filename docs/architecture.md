@@ -28,8 +28,6 @@ Schemas are the contracts between system parts.
 
 Expected schema areas:
 
-- common
-- artifact
 - evidence
 - semantic
 - intent
@@ -37,7 +35,13 @@ Expected schema areas:
 - diagram-ir
 - validation
 
-V0.1 creates the directory boundary but does not finalize schema definitions.
+V0.1 starts with the smallest useful chain:
+
+```text
+Evidence -> Semantic Claim -> Intent Claim -> Diagram IR -> Validation Result
+```
+
+The draft schemas are intentionally minimal and may change as benchmark cases reveal missing structure.
 
 ## Agents
 
@@ -76,4 +80,3 @@ Potential output formats include SVG and PPTX, but V0.1 does not choose or imple
 Validation is part of the architecture, not an optional finishing step.
 
 The result should be checked against evidence, semantic claims, intent, and rendering expectations.
-

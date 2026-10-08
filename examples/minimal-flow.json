@@ -1,0 +1,123 @@
+{
+  "evidence": [
+    {
+      "id": "e-001",
+      "type": "text",
+      "source": "ppt_native",
+      "content": "Application Management",
+      "confidence": 0.99,
+      "artifact_ref": "slide-001/object-title"
+    },
+    {
+      "id": "e-002",
+      "type": "container",
+      "source": "geometry_analysis",
+      "content": {
+        "shape": "dashed_group"
+      },
+      "confidence": 0.9,
+      "artifact_ref": "slide-001/object-group-01",
+      "visual_grammar": {
+        "container": {
+          "type": "dashed_group"
+        }
+      }
+    },
+    {
+      "id": "e-003",
+      "type": "style",
+      "source": "style_analysis",
+      "content": {
+        "fill": "dark_blue",
+        "emphasis": "high"
+      },
+      "confidence": 0.86,
+      "artifact_ref": "slide-001/object-node-01",
+      "visual_grammar": {
+        "node_style": {
+          "fill": "dark_blue",
+          "emphasis": "high"
+        }
+      }
+    }
+  ],
+  "semantic_claims": [
+    {
+      "id": "s-001",
+      "claim": "Application Management is represented as a highlighted node inside a dashed group.",
+      "evidence_ids": ["e-001", "e-002", "e-003"],
+      "confidence": 0.86,
+      "status": "hypothesis"
+    }
+  ],
+  "intent_claims": [
+    {
+      "id": "i-001",
+      "intent": "The diagram likely emphasizes Application Management as an important part of the grouped area.",
+      "supporting_claim_ids": ["s-001"],
+      "confidence": 0.72,
+      "status": "hypothesis",
+      "open_questions": ["q-001"]
+    }
+  ],
+  "questions": [
+    {
+      "id": "q-001",
+      "question": "Does the dark blue styling mean Application Management is the current focus, or only that it belongs to this group?",
+      "reason": "The answer affects whether the compiled diagram should preserve strong emphasis or only group membership.",
+      "blocks": ["i-001"],
+      "status": "open"
+    }
+  ],
+  "diagram_ir": {
+    "id": "d-001",
+    "title": "Application Management Group",
+    "source_intent_ids": ["i-001"],
+    "elements": [
+      {
+        "id": "group-01",
+        "type": "container",
+        "label": "Group",
+        "children": ["node-01"],
+        "style": {
+          "border": "dashed"
+        },
+        "evidence_ids": ["e-002"]
+      },
+      {
+        "id": "node-01",
+        "type": "node",
+        "label": "Application Management",
+        "style": {
+          "fill": "dark_blue",
+          "emphasis": "high"
+        },
+        "evidence_ids": ["e-001", "e-003"],
+        "semantic_claim_ids": ["s-001"]
+      }
+    ]
+  },
+  "validation": [
+    {
+      "id": "v-001",
+      "target_id": "d-001",
+      "status": "warn",
+      "checks": [
+        {
+          "name": "evidence_links_present",
+          "status": "pass",
+          "message": "IR elements reference source evidence.",
+          "evidence_ids": ["e-001", "e-002", "e-003"]
+        },
+        {
+          "name": "intent_confidence",
+          "status": "warn",
+          "message": "Intent remains a hypothesis and needs clarification before final emphasis is locked.",
+          "evidence_ids": ["e-003"]
+        }
+      ],
+      "repair_required": false
+    }
+  ]
+}
+

@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/riolg2025/diagram-agent/schemas/diagram-ir.schema.json",
+  "title": "Diagram IR",
+  "description": "A minimal intermediate representation for deterministic diagram compilation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "elements"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^d-[A-Za-z0-9._-]+$"
+    },
+    "title": {
+      "type": "string"
+    },
+    "source_intent_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^i-[A-Za-z0-9._-]+$"
+      }
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/element"
+      }
+    }
+  },
+  "$defs": {
+    "element": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "type"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["node", "container", "connector", "text"]
+        },
+        "label": {
+          "type": "string"
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "from": {
+          "type": "string"
+        },
+        "to": {
+          "type": "string"
+        },
+        "layout": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "x": { "type": "number" },
+            "y": { "type": "number" },
+            "width": { "type": "number" },
+            "height": { "type": "number" }
+          }
+        },
+        "style": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^e-[A-Za-z0-9._-]+$"
+          }
+        },
+        "semantic_claim_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^s-[A-Za-z0-9._-]+$"
+          }
+        }
+      }
+    }
+  }
+}
+

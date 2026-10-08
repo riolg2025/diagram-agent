@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/riolg2025/diagram-agent/schemas/question.schema.json",
+  "title": "Clarification Question",
+  "description": "A targeted question used when uncertainty blocks meaningful progress.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "question", "reason", "blocks", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^q-[A-Za-z0-9._-]+$"
+    },
+    "question": {
+      "type": "string"
+    },
+    "reason": {
+      "description": "Why this question matters for understanding or compilation.",
+      "type": "string"
+    },
+    "blocks": {
+      "description": "Claim or output ids affected by the uncertainty.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "status": {
+      "type": "string",
+      "enum": ["open", "answered", "dismissed"]
+    },
+    "answer_evidence_id": {
+      "type": "string",
+      "pattern": "^e-[A-Za-z0-9._-]+$"
+    }
+  }
+}
+

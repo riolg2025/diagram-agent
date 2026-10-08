@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/riolg2025/diagram-agent/schemas/intent.schema.json",
+  "title": "Intent Claim",
+  "description": "A claim about what the diagram likely intends to communicate.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "intent", "supporting_claim_ids", "confidence", "status"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^i-[A-Za-z0-9._-]+$"
+    },
+    "intent": {
+      "type": "string"
+    },
+    "supporting_claim_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "pattern": "^(s|e)-[A-Za-z0-9._-]+$"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": ["hypothesis", "validated", "needs_clarification", "blocked"]
+    },
+    "open_questions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^q-[A-Za-z0-9._-]+$"
+      }
+    }
+  }
+}
+

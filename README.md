@@ -47,6 +47,8 @@ V0.1 does not commit to a specific model provider, rendering engine, storage lay
 │   ├── benchmark.md
 │   ├── concepts.md
 │   └── evidence-grounding.md
+├── examples/
+│   └── minimal-flow.json
 ├── schemas/
 ├── knowledge/
 ├── skills/
@@ -64,3 +66,8 @@ This keeps the project adaptable: the core should survive changes in LLM provide
 
 This repository is at the initial V0.1 skeleton stage.
 
+The first schema drafts now cover the minimum evidence-grounded chain:
+
+```text
+Evidence -> Semantic Claim -> Intent Claim -> Diagram IR -> Validation Result
+```
